@@ -1,4 +1,9 @@
-# Graph Convolutional Policy Network for Goal-Directed Molecular Graph Generation
+# Fork of Graph Convolutional Policy Network for Goal-Directed Molecular Graph Generation
+
+Note: After playing around with this repo for a bit, I realized much of the code is deprecated in Tensorflow 2.0, so I made some changes to allow for it to work with Tensorflow 1.15 + fixed some other issues with running the file. Any versions of TF after that will not run. 
+
+
+
 This repository is the official Tensorflow implementation of "Graph Convolutional Policy Network for Goal-Directed Molecular Graph Generation".
 
 [Jiaxuan You](https://cs.stanford.edu/~jiaxuan/)\*, Bowen Liu\*, [Rex Ying](https://cs.stanford.edu/people/rexy/), [Vijay Pande](https://pande.stanford.edu/), [Jure Leskovec](https://cs.stanford.edu/people/jure/index.html), [Graph Convolutional Policy Network for Goal-Directed Molecular Graph Generation](https://arxiv.org/abs/1806.02473)
