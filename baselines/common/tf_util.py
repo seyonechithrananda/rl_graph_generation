@@ -52,14 +52,14 @@ def make_session(num_cpu=None, make_default=False):
     """Returns a session that will use <num_cpu> CPU's only"""
     if num_cpu is None:
         num_cpu = int(os.getenv('RCALL_NUM_CPU', multiprocessing.cpu_count()))
-    tf_config = tf.ConfigProto(
+    tf_config = tf.compat.v1.ConfigProto(
         inter_op_parallelism_threads=num_cpu,
         intra_op_parallelism_threads=num_cpu)
     tf_config.gpu_options.allocator_type = 'BFC'
     if make_default:
         return tf.InteractiveSession(config=tf_config)
     else:
-        return tf.Session(config=tf_config)
+        return tf.compat.v1.Session(config=tf_config)
 
 def single_threaded_session():
     """Returns a session which will only use a single CPU"""
@@ -252,7 +252,7 @@ def get_placeholder(name, dtype, shape):
         assert dtype1 == dtype and shape1 == shape
         return out
     else:
-        out = tf.placeholder(dtype=dtype, shape=shape, name=name)
+        out = tf.compat.v1.placeholder(dtype=dtype, shape=shape, name=name)
         _PLACEHOLDER_CACHE[name] = (out, dtype, shape)
         return out
 
@@ -264,7 +264,7 @@ def flattenallbut0(x):
 
 
 # ================================================================
-# Diagnostics 
+# Diagnostics
 # ================================================================
 
 def display_var_info(vars):
@@ -277,4 +277,3 @@ def display_var_info(vars):
         if "/b:" in name: continue    # Wx+b, bias is not interesting to look at => count params, but not print
         logger.info("    %s%s%s" % (name, " "*(55-len(name)), str(v.shape)))
     logger.info("Total model parameters: %0.1f million" % (count_params*1e-6))
-
