@@ -1,4 +1,4 @@
-# Fork of Graph Convolutional Policy Network for Goal-Directed Molecular Graph Generation
+# Tensorflow 1.15: Graph Convolutional Policy Network for Goal-Directed Molecular Graph Generation
 
 ## Please read below!
 Note: After playing around with this repo for a bit, I realized much of the code is deprecated in Tensorflow 2.0, so I made some changes to allow for it to work with Tensorflow 1.15 + fixed some other issues with running the file. Any versions of TF after that will not run. 
